@@ -14,3 +14,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+#Conclusion
+#Socket programming enables IPC by allowing processes to communicate over a network or locally.
+#Unlike pipes, message queues, and shared memory, sockets support cross-machine communication 
+#and scalability, making them ideal for distributed systems.
