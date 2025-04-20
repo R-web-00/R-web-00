@@ -63,3 +63,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+Conclusion:
+# In a distributed system, election algorithms like Bully or Ring are used to elect a new coordinator. The process with the highest ID (in Bully) or the next active process in a logical ring (in Ring) takes over as the coordinator, ensuring a leader is always chosen even after failures.
