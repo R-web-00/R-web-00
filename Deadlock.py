@@ -99,3 +99,10 @@ no_deadlock_deps = {
     8: []
 }
 print_wait_for_graph("No Deadlock Example", no_deadlock_deps)
+
+
+##Conclusion:
+##The algorithm detects deadlocks by circulating probe messages along the Wait-For Graph (WFG).
+##If a probe returns to its initiator, a cycle is detected, confirming
+##deadlock. Otherwise, if the probe reaches a process that is not waiting for any resource, it is ignored, 
+##indicating no deadlock.
