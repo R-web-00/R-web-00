@@ -37,6 +37,13 @@ class Process:
                 return True
         return False
 
+def print_wait_for_graph(title, dependencies):
+    print(f"\n--- {title} ---")
+    for src, targets in dependencies.items():
+        for tgt in targets:
+            print(f"P{src} --> P{tgt}")
+        if not targets:
+            print(f"P{src} --> (no dependency)")
 
 # Example Usage
 print("--- Deadlock Example ---")
@@ -57,6 +64,15 @@ if p1.request_resource([p2], p1.pid):
 else:
     print("No deadlock detected.")
 
+# Print the wait-for graph for deadlock case
+deadlock_deps = {
+    1: [2],
+    2: [3],
+    3: [4],
+    4: [1]
+}
+print_wait_for_graph("Deadlock Example", deadlock_deps)
+
 print("\n--- No Deadlock Example ---")
 p5 = Process(5)
 p6 = Process(6)
@@ -74,3 +90,12 @@ if p5.request_resource([p6], p5.pid):
     print("Deadlock confirmed.")
 else:
     print("No deadlock detected.")
+
+# Print the wait-for graph for no deadlock case
+no_deadlock_deps = {
+    5: [6],
+    6: [7],
+    7: [8],
+    8: []
+}
+print_wait_for_graph("No Deadlock Example", no_deadlock_deps)
