@@ -23,3 +23,9 @@ def parent_process():
 if __name__ == "__main__":
     multiprocessing.set_start_method('fork')  # <-- Add this line on macOS
     parent_process()
+
+# Conclusion:
+# The parent and child processes communicate effectively using an os.pipe() mechanism, 
+# which creates a unidirectional communication channel.
+# The child writes a message to the write end of the pipe, which the parent reads 
+# from the read end. Proper closing of unused pipe ends ensures no deadlocks and smooth data transmission.
