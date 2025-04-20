@@ -67,3 +67,10 @@ if __name__ == "__main__":
     m[4][1] = -1  # P2 e22 sends to P1 e15
 
     lamportLogicalClock(e1, e2, m)
+
+# Conclusion:
+# Lamport's algorithm assigns timestamps using a logical clock, where each process maintains a counter. 
+# Before sending a message, 
+# the process increments its counter and includes the timestamp. 
+# The receiving process updates its counter to the maximum of its own value and 
+# the received timestamp, ensuring causal ordering of events.
